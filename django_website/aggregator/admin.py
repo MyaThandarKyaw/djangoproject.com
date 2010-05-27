@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
 from django.contrib import admin
-from .models import Feed, FeedItem
+from .models import Feed, FeedItem, FeedType
 
 admin.site.register(Feed, 
     list_display  = ["title", "public_url", "is_defunct"],
@@ -17,3 +17,5 @@ admin.site.register(FeedItem,
     search_fields  = ['feed__title', 'feed__public_url', 'title'],
     date_heirarchy = ['date_modified'],
 )
+
+admin.site.register(FeedType)

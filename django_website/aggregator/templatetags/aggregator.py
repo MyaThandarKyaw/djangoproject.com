@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
 from django import template
-from .models import Feed
+from ..models import Feed
 
 class FeedListNode(template.Node):
     def __init__(self, varname):

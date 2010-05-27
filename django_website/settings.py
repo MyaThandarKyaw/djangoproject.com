@@ -6,7 +6,7 @@ DEVELOPMENT_MODE = (platform.node() != "djangoproject")
 ADMINS = (('Adrian Holovaty','holovaty@gmail.com'), ('Jacob Kaplan-Moss', 'jacob@jacobian.org'))
 TIME_ZONE = 'America/Chicago'
 
-SERVER_EMAIL = 'root@pam.servers.ljworld.com'
+SERVER_EMAIL = 'root@djangoproject.com'
 MANAGERS = (('Jacob Kaplan-Moss','jacob@jacobian.org'),)
 
 DATABASE_ENGINE = 'postgresql_psycopg2'
@@ -41,9 +41,9 @@ INSTALLED_APPS = (
     'django.contrib.redirects',
     'django.contrib.sessions',
     'django.contrib.sitemaps',
-    'django_website.apps.blog',
-    'django_website.apps.docs',
-    'django_website.apps.aggregator',
+    'django_website.blog',
+    'django_website.docs',
+    'django_website.aggregator',
     'registration',
 )
 MEDIA_ROOT = "/home/html/djangoproject.com/m/"
@@ -59,7 +59,7 @@ CACHE_MIDDLEWARE_GZIP = True
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.http.SetRemoteAddrFromForwardedFor',
+    'django_website.middleware.SetRemoteAddr',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',

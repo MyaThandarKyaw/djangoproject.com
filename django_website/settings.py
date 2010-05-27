@@ -1,5 +1,7 @@
 import os, platform
 
+BASE = os.path.abspath(os.path.dirname(__file__))
+
 # Far too clever trick to know if we're running on the deployment server.
 DEVELOPMENT_MODE = (platform.node() != "djangoproject")
 
@@ -18,7 +20,10 @@ if DEVELOPMENT_MODE:
     PREPEND_WWW = False
     CACHE_BACKEND = "dummy:///"
     DJANGO_SVN_ROOT = "http://code.djangoproject.com/svn/django/"
-    ADMIN_MEDIA_PREFIX = '/media/'
+    MEDIA_ROOT = os.path.abspath(os.path.join(BASE, '..', 'media'))
+    MEDIA_URL = "/media/"
+    ADMIN_MEDIA_PREFIX = '/admin_media/'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     DEBUG = False
     PREPEND_WWW = True
@@ -26,6 +31,8 @@ else:
     CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
     TEMPLATE_DIRS = ['/home/djangoproject.com/django_website/templates']
     DJANGO_SVN_ROOT = "file:///home/svn/django/django/"
+    MEDIA_ROOT = "/home/html/djangoproject.com/m/"
+    MEDIA_URL = "http://www.djangoproject.com.com/m/"
     ADMIN_MEDIA_PREFIX = 'http://media.djangoproject.com/admin/'
 
 SITE_ID = 1
@@ -45,8 +52,6 @@ INSTALLED_APPS = (
     'django_website.aggregator',
     'registration',
 )
-MEDIA_ROOT = "/home/html/djangoproject.com/m/"
-MEDIA_URL = "http://www.djangoproject.com.com/m/"
 
 # setting for documentation root path
 DJANGO_DOCUMENT_ROOT_PATH = "/home/html/djangoproject.com/docs/"
@@ -63,13 +68,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.CacheMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 )
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
 )
+
 USE_I18N = False
 
 DEFAULT_FROM_EMAIL = "noreply@djangoproject.com"

@@ -4,9 +4,9 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin; admin.autodiscover()
 from django.contrib.comments.feeds import LatestCommentFeed
-from . import views
-from .aggregator.feeds import CommunityAggregatorFeed
-from .blog.feeds import WeblogEntryFeed
+from .. import views
+from ..aggregator.feeds import CommunityAggregatorFeed
+from ..blog.feeds import WeblogEntryFeed
 
 urlpatterns = patterns('',
     (r'^$', views.homepage),

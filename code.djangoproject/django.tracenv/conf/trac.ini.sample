@@ -4,6 +4,9 @@
 max_size = 262144
 render_unsafe_content = false
 
+[authz_policy]
+# authz_file = <inherited>
+
 [browser]
 color_scale = True
 downloadable_paths = /trunk, /branches/*, /tags/*
@@ -34,6 +37,7 @@ templates_dir =
 
 [logging]
 log_file = trac.log
+# log_format = <inherited>
 log_level = DEBUG
 log_type = none
 
@@ -41,8 +45,11 @@ log_type = none
 stats_provider = DefaultTicketGroupStatsProvider
 
 [mimeviewer]
+enscript_modes = text/x-dylan:dylan:4
+enscript_path = enscript
 max_preview_size = 262144
 mime_map = text/x-dylan:dylan,text/x-idl:ice,text/x-ada:ads:adb
+php_path = php
 tab_width = 8
 treat_as_binary = application/octet-stream,application/pdf,application/postscript,application/rtf
 
@@ -78,7 +85,7 @@ admin_trac_url = .
 descr = My example project
 footer = Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a>
 icon = common/trac.ico
-name = Django
+name = My Project
 url = 
 
 [query]
@@ -98,13 +105,21 @@ default_log_limit = 100
 stats_provider = DefaultTicketGroupStatsProvider
 
 [search]
+# default_disabled_filters = <inherited>
 min_query_length = 3
+
+[sqlite]
+# extensions = <inherited>
 
 [svn]
 branches = trunk,branches/*
 tags = tags/*
 
 [ticket]
+commit_ticket_update_commands.close = close closed closes fix fixed fixes
+commit_ticket_update_commands.refs = addresses re references refs see
+commit_ticket_update_envelope = 
+commit_ticket_update_notify = true
 default_cc = 
 default_component = 
 default_description = 
@@ -122,23 +137,6 @@ max_description_size = 262144
 preserve_newlines = default
 restrict_owner = false
 workflow = ConfigurableTicketWorkflow
-
-[ticket-workflow]
-accept = new,assigned,accepted,reopened -> accepted
-accept.operations = set_owner_to_self
-accept.permissions = TICKET_MODIFY
-leave = * -> *
-leave.default = 1
-leave.operations = leave_status
-reassign = new,assigned,accepted,reopened -> assigned
-reassign.operations = set_owner
-reassign.permissions = TICKET_MODIFY
-reopen = closed -> reopened
-reopen.operations = del_resolution
-reopen.permissions = TICKET_CREATE
-resolve = new,assigned,accepted,reopened -> closed
-resolve.operations = set_resolution
-resolve.permissions = TICKET_MODIFY
 
 [timeline]
 abbreviated_messages = True

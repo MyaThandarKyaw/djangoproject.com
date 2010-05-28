@@ -1,0 +1,194 @@
+# -*- coding: utf-8 -*-
+
+[attachment]
+max_size = 262144
+render_unsafe_content = false
+
+[browser]
+downloadable_paths = /django/trunk, /django/branches/*, /django/tags/*, /djangoproject.com/django_website
+hide_properties = svk:merge, svn:ignore
+
+[changeset]
+max_diff_bytes = 10000000
+max_diff_files = 0
+wiki_format_messages = true
+
+[components]
+batchmod.* = enabled
+batchmod.web_ui.* = enabled
+navadd.* = enabled
+navhider.filter.* = enabled
+simpleticket.* = enabled
+simpleticket.web_ui.* = enabled
+ticketdelete.web_ui.* = enabled
+trac.ticket.query.* = disabled
+trac.ticket.report.* = disabled
+trac.ticket.roadmap.* = disabled
+trac.ticket.roadmap.milestonemodule = enabled
+trac.ticket.roadmap.roadmapmodule = enabled
+tracpygments.* = enabled
+tracrpc.* = enabled
+tracspamfilter.* = enabled
+tracspamfilter.adapters.* = enabled
+tracspamfilter.admin.* = enabled
+tracspamfilter.api.* = enabled
+tracspamfilter.bayes = disabled
+tracspamfilter.filters.akismet.* = enabled
+tracspamfilter.filters.bayes.* = enabled
+tracspamfilter.filters.extlinks.* = enabled
+tracspamfilter.filters.ip_blacklist.* = enabled
+tracspamfilter.filters.ip_throttle.* = enabled
+tracspamfilter.filters.regex.* = enabled
+tracspamfilter.filters.session.* = enabled
+tracspamfilter.ip_blacklist = disabled
+tractoc.* = enabled
+tractoc.macro.* = enabled
+webadmin.* = enabled
+webadmin.basics.* = enabled
+webadmin.logging.* = enabled
+webadmin.perm.* = enabled
+webadmin.plugin.* = enabled
+webadmin.ticket.* = enabled
+webadmin.web_ui.* = enabled
+
+[header_logo]
+alt = Django
+height = -1
+link = http://djangoproject.com/
+src = http://media.djangoproject.com/img/site/hdr_logo.gif
+width = -1
+
+[logging]
+log_file = trac.log
+log_level = ERROR
+log_type = file
+
+[mimeviewer]
+enscript_modes = text/x-dylan:dylan:4
+enscript_path = /usr/bin/enscript
+max_preview_size = 262144
+mime_map = text/x-dylan:dylan,text/x-idl:ice,text/x-ada:ads:adb
+php_path = php
+silvercity_modes = 
+tab_width = 8
+
+[navadd]
+add_items = reports, simpleticket, register
+register.target = metanav
+register.title = Register
+register.url = http://www.djangoproject.com/accounts/register/
+reports.target = mainnav
+reports.title = Reports
+reports.url = /wiki/Reports
+simpleticket.target = mainnav
+simpleticket.title = New Ticket
+simpleticket.url = /simpleticket
+
+[notification]
+always_notify_owner = true
+always_notify_reporter = true
+always_notify_updater = true
+mime_encoding = base64
+smtp_always_bcc = 
+smtp_always_cc = django-trac@holovaty.com, django-updates@googlegroups.com
+smtp_default_domain = 
+smtp_enabled = true
+smtp_from = noreply@djangoproject.com
+smtp_password = 
+smtp_port = 25
+smtp_replyto = noreply@djangoproject.com
+smtp_server = localhost
+smtp_subject_prefix = __default__
+smtp_user = 
+use_public_cc = false
+use_short_addr = false
+use_tls = false
+
+[project]
+descr = The Web framework for perfectionists with deadlines.
+footer = 
+icon = /favicon.ico
+name = Django
+url = http://code.djangoproject.com/
+
+[search]
+min_query_length = 3
+
+[simpleticket]
+hide = stage, needs_tests, needs_docs, needs_better_patch
+
+[spam-filter]
+akismet_api_key = c892e4962244
+akismet_api_url = rest.akismet.com/1.1/
+akismet_karma = 4
+attachment_sample_size = 16384
+bayes_karma = 10
+extlinks_karma = 2
+ip_throttle_karma = 0
+logging_enabled = true
+max_external_links = 4
+max_posts_by_ip = 10
+min_karma = 1
+purge_age = 7
+regex_karma = 5
+session_karma = 20
+trust_authenticated = true
+
+[ticket]
+default_component = Uncategorized
+default_milestone = 
+default_priority = major
+default_type = bug / defect
+default_version = 1.2
+restrict_owner = false
+
+[ticket-custom]
+has_patch = checkbox
+has_patch.label = Has patch
+has_patch.order = 20
+needs_better_patch = checkbox
+needs_better_patch.label = Patch needs improvement
+needs_better_patch.order = 50
+needs_docs = checkbox
+needs_docs.label = Needs documentation
+needs_docs.order = 30
+needs_tests = checkbox
+needs_tests.label = Needs tests
+needs_tests.order = 40
+stage = select
+stage.label = Triage Stage
+stage.options = Unreviewed|Design decision needed|Accepted|Ready for checkin|Someday/Maybe|Fixed on a branch
+stage.order = 10
+stage.value = 0
+
+[ticket-query]
+default_columns = id, summary, status, owner, component, version, changetime
+
+[timeline]
+changeset_long_messages = false
+changeset_show_files = 0
+default_daysback = 4
+ticket_show_details = true
+
+[trac]
+authz_file = 
+authz_module_name = 
+base_url = 
+check_auth_ip = true
+database = postgres://apache@/djangoproject?schema=trac
+default_charset = utf-8
+default_handler = WikiModule
+htdocs_location = http://media.djangoproject.com/trac/
+ignore_auth_case = false
+mainnav = wiki,timeline,browser,reports,tickets,-newticket,simpleticket,roadmap,search
+metanav = -about,login,logout,register,settings,-help
+permission_store = DefaultPermissionStore
+repository_dir = /home/svn/django
+repository_type = svn
+templates_dir = /home/trac/templates
+timeout = 20
+
+[wiki]
+ignore_missing_pages = false
+split_page_names = false
+
